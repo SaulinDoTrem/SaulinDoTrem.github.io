@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+		<meta charset="author" content="Saulo Klein Nery"> 
+	<title>Exercício nº3 do Desafio02 Rocketseat</title>
+</head>
+<body>
+	<h1>Exercício nº3 do Desafio02 Rocketseat</h1>
+	<div id="desafio03">
+	</div>	
+	<div class="footer" style="margin-left: 2.3%;">
+		<a href="../index.html">Voltar</a>
+	</div>
+</body>
+<script>
+	var nomes = ["Diego","Gabriel","Lucas"];
+	function desafio03()
+	{
+		var lista = document.createElement("ul");
+		var id = document.createAttribute("id");
+		id.value = 'lista';
+		lista.setAttributeNode(id);
+		document.getElementById("desafio03").appendChild(lista);
+		for( nome of nomes){
+				var li = document.createElement("li");
+				var texto = document.createTextNode(nome);
+				li.appendChild(texto);
+				document.getElementById("lista").appendChild(li);
+			}
+	}
+	desafio03();
+</script>
+</html>

@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta charset="author" content="Saulo Klein Nery"> 
 	<title>Exercício nº1 do Desafio02 Rocketseat</title>
-		<link rel="stylesheet" href="../../../../css/bootstrap.css">
+	<link rel="stylesheet" href="../../../../css/bootstrap.css">
 		<link rel="stylesheet" href="../../../../css/bootstrap.min.css">
 		<link rel="stylesheet" href="../../../../css/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="../../../../css/style.css">
@@ -13,7 +13,23 @@
   		<script src="../../../../js/jquery.js"></script>
 </head>
 <body>
-	<button onclick="javascript:desafio01();">Criar um quadrado</button>
-	
+	<h1>Exercício nº1 do Desafio02 Rocketseat</h1>
+	<div id="desafio01">
+		</div>	
+	</div>
+	<button onclick="javascript:desafio01();"> Criar um quadrado</button>
+	<div class="footer" style="margin-left: 2.3%;">
+		<a href="../index.html">Voltar</a>
+	</div>
 </body>
+<script>
+	function desafio01(){
+		var quadrado = document.createElement("div");
+			quadrado.style.width = '100px';
+			quadrado.style.height = '100px';
+			quadrado.style.backgroundColor = 'red';
+			quadrado.style.margin = '5px';
+			document.getElementById("desafio01").appendChild(quadrado);
+	}
+</script>
 </html>
