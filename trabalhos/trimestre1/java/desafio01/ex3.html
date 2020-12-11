@@ -4,31 +4,14 @@
 		<meta charset="utf-8">
 		<meta charset="author" content="Saulo Klein Nery"> 
 	<title>Exercício nº3 do Desafio01 Rocketseat</title>
-		<link rel="stylesheet" href="./style.css">	
+		<link rel="stylesheet" href="../../../../css/bootstrap.css">
+		<link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+		<link rel="stylesheet" href="../../../../css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="../../../../css/style.css">
+  		<script src="../../../../js/bootstrap.js"></script>
+  		<script src="../../../../js/bootstrap.min.js"></script>
+  		<script src="../../../../js/jquery.js"></script>
 <body>
-	<script>
-			function desafio3()
-				{
-					var skill1 = document.getElementById("skill1").value;
-					var skill2 = document.getElementById("skill2").value;
-					var skill3 = document.getElementById("skill3").value;
-					var vetor = [skill1, skill2, skill3];
-					for(i = 0;i < 3; i++)
-					{
-						if(skill1 === "Javascript")
-							var result = true;
-						else
-							if(skill2 === "Javascript")
-								var result = true;
-								else
-									if(skill3 === "Javascript")
-										var result = true;
-									else 
-										var result = false;
-					}
-					document.getElementById("result3").innerHTML = result;
-				}
-		</script>
 	<h2>Desafio3</h2>
 			
 				<ol><p>Digite suas habilidades</p>
@@ -38,6 +21,9 @@
 					<h2 id="result3"></h2>
 				<button onclick="javascript:desafio3()">Executar</button>
 				</ol>
+	<div class="footer">
+		<a href="../index.html">Voltar</a>
+	</div>			
 </body>
 	<script>
 			function desafio3()
