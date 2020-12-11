@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+		<meta charset="author" content="Saulo Klein Nery"> 
+	<title>Exercício nº4 do Desafio01 Rocketseat</title>
+		<link rel="stylesheet" href="./style.css">
+<body>
+	<script>
+			function desafio4()
+				{
+					var anos = document.getElementById("tempo").value;
+					anos = parseInt(anos);
+					if(anos >= 0 && anos < 1)
+						var nome = "Padawan.";
+						else
+							if(anos >= 1 && anos < 3)
+								var nome = "Intermediário.";
+								else
+									if(anos >= 3 && anos < 6)
+										var nome = "Avançado.";
+										else
+											var nome = "Jedi Master.";
+					var result = "Você é considerado " + nome;
+					document.getElementById("result4").innerHTML = result;
+				}
+		</script>	
+	<h2>Desafio4</h2>
+			
+				<p>Digite seu tempo total de estudo(em números)<input type="value" id="tempo"></p>
+				<h2 id="result4"></h2>
+				<button onclick="javascript:desafio4()">Executar</button>
+</body>
+	<script>
+			function desafio4()
+				{
+					var anos = document.getElementById("tempo").value;
+					anos = parseInt(anos);
+					if(anos >= 0 && anos < 1)
+						var nome = "Padawan.";
+						else
+							if(anos >= 1 && anos < 3)
+								var nome = "Intermediário.";
+								else
+									if(anos >= 3 && anos < 6)
+										var nome = "Avançado.";
+										else
+											var nome = "Jedi Master.";
+					var result = "Você é considerado " + nome;
+					document.getElementById("result4").innerHTML = result;
+				}
+		</script>
+</html>

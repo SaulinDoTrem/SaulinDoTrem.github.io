@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+		<meta charset="author" content="Saulo Klein Nery"> 
+	<title>Exercício nº2 do Desafio01 Rocketseat</title>
+		<link rel="stylesheet" href="./style.css">
+			
+<body>
+	<h2>Desafio2</h2>
+			
+			<p>Digite o começo do intervalo<input type="value" id="n1"></p>
+			<p>Digite o final do intervalo<input type="value" id="n2"></p>
+			<h2 id="result2"></h2>
+			<button onclick="javascript:desafio2()">Executar</button>
+</body>
+	<script>
+			function desafio2()
+				{
+					var n1 = document.getElementById("n1").value;
+					var n2 = document.getElementById("n2").value;
+					n1 = parseInt(n1);
+					n2 = parseInt(n2);
+					var i;
+					var texto;
+					if(n1 % 2 == 0)
+						texto = n1 + ", ";
+					for(i = n1 + 1; i < n2; i++)
+					{
+						if(i % 2 == 0)
+							texto=texto + i + ", ";
+					}
+					if(n2 % 2 == 0)
+						texto+= n2 + ".";
+					var result = "Todos os números pares entre " + n1 + " e " + n2 + " são: " + texto;
+					document.getElementById("result2").innerHTML = result;
+				}
+		</script>
+</html>

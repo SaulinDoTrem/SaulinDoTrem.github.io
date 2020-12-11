@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+		<meta charset="author" content="Saulo Klein Nery"> 
+	<title>Exercício nº5 do Desafio01 Rocketseat</title>
+		<link rel="stylesheet" href="./style.css">	
+<body>
+	<h2>Desafio5</h2>
+			
+				<ol><p>Digite as informações:</p>
+					<li>Primeiro nome<input type="value" id="nome1">
+						<ol><p>Digite suas habilidades</p>
+						<li>Primeira<input type="value" id="skill11"></li>
+						<li>Segunda<input type="value" id="skill21"></li>
+						<li>Terceira<input type="value" id="skill31"></li>
+						</ol></li><br>
+					<li>Segundo nome<input type="value" id="nome2">
+						<ol><p>Digite suas habilidades</p>
+						<li>Primeira<input type="value" id="skill12"></li>
+						<li>Segunda<input type="value" id="skill22"></li>
+						<li>Terceira<input type="value" id="skill32"></li>
+						</ol></li><br>
+					<li>Terceiro nome<input type="value" id="nome3">
+						<ol><p>Digite suas habilidades</p>
+						<li>Primeira<input type="value" id="skill13"></li>
+						<li>Segunda<input type="value" id="skill23"></li>
+						<li>Terceira<input type="value" id="skill33"></li>
+						</ol></li>
+				</ol>
+				<h2 id="result51"></h2>
+				<h2 id="result52"></h2>
+				<h2 id="result53"></h2>
+				<button onclick="javascript:desafio5()">Executar</button>
+</body>
+	<script>
+			function desafio5()
+				{
+					var nome1 = document.getElementById("nome1").value;
+					var skill1 = document.getElementById("skill11").value;
+					var skill2 = document.getElementById("skill21").value;
+					var skill3 = document.getElementById("skill31").value;
+					var nome2 = document.getElementById("nome2").value;
+					var skill12 = document.getElementById("skill12").value;
+					var skill22 = document.getElementById("skill22").value;
+					var skill32 = document.getElementById("skill32").value;
+					var nome3 = document.getElementById("nome3").value;
+					var skill13 = document.getElementById("skill13").value;
+					var skill23 = document.getElementById("skill23").value;
+					var skill33 = document.getElementById("skill33").value;
+					var odin = [
+					{
+						nome: nome1,
+						habilidades: [skill1, skill2, skill3]
+					},
+					{
+						nome: nome2,
+						habilidades: [skill12, skill22, skill32]
+					},
+					{
+						nome: nome3,
+						habilidades: [skill13, skill23, skill33]
+					}
+					];
+					var result = "O " + odin[0].nome + " tem as seguintes habilidades: " + odin[0].habilidades;
+					var result2 = "O " + odin[1].nome + " tem as seguintes habilidades: " + odin[1].habilidades;
+					var result3 = "O " + odin[2].nome + " tem as seguintes habilidades: " + odin[2].habilidades;
+					document.getElementById("result51").innerHTML = result;
+					document.getElementById("result52").innerHTML = result2;
+					document.getElementById("result53").innerHTML = result3;
+				}
+		</script>
+</html>

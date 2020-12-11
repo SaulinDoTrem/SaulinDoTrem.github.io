@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+		<meta charset="author" content="Saulo Klein Nery"> 
+	<title>Exercício nº1 do Desafio01 Rocketseat</title>
+		<link rel="stylesheet" href="./style.css">	
+<body>
+	<h2>Desafio 1</h2>
+				
+				<p>Digite o nome da rua<input type="value" id="rua"></p>
+				<p>Digite o número da casa<input type="value" id="numero"></p>
+				<p>Digite o bairro<input type="value" id="bairro"></p>
+				<p>Digite a cidade<input type="value" id="cidade"></p>
+				<p>Digite o estado(sigla)<input type="value" id="uf"></p>
+				<h2 id="result1"></h2>
+				<button onclick="javascript:desafio1()">Executar</button>
+</body>
+<script>
+			function desafio1()
+				{
+					var endereco = {
+						rua: document.getElementById("rua").value,
+						num: document.getElementById("numero").value,
+						bairro: document.getElementById("bairro").value,
+						cidade: document.getElementById("cidade").value,
+						uf: document.getElementById("uf").value
+					};
+					endereco.num = parseInt(endereco.num)
+					var result = "O usúario mora em " + endereco.cidade + " / " + endereco.uf + ", no bairro " + endereco.bairro + ", na " + endereco.rua + " com nº " + endereco.num;
+					document.getElementById("result1").innerHTML = result;
+					return result;
+				}
+		</script>
+</html>

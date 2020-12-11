@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+		<meta charset="author" content="Saulo Klein Nery"> 
+	<title>Exercício nº3 do Desafio01 Rocketseat</title>
+		<link rel="stylesheet" href="./style.css">	
+<body>
+	<script>
+			function desafio3()
+				{
+					var skill1 = document.getElementById("skill1").value;
+					var skill2 = document.getElementById("skill2").value;
+					var skill3 = document.getElementById("skill3").value;
+					var vetor = [skill1, skill2, skill3];
+					for(i = 0;i < 3; i++)
+					{
+						if(skill1 === "Javascript")
+							var result = true;
+						else
+							if(skill2 === "Javascript")
+								var result = true;
+								else
+									if(skill3 === "Javascript")
+										var result = true;
+									else 
+										var result = false;
+					}
+					document.getElementById("result3").innerHTML = result;
+				}
+		</script>
+	<h2>Desafio3</h2>
+			
+				<ol><p>Digite suas habilidades</p>
+					<li>Primeira<input type="value" id="skill1"></li>
+					<li>Segunda<input type="value" id="skill2"></li>
+					<li>Terceira<input type="value" id="skill3"></li>
+					<h2 id="result3"></h2>
+				<button onclick="javascript:desafio3()">Executar</button>
+				</ol>
+</body>
+	<script>
+			function desafio3()
+				{
+					var skill1 = document.getElementById("skill1").value;
+					var skill2 = document.getElementById("skill2").value;
+					var skill3 = document.getElementById("skill3").value;
+					var vetor = [skill1, skill2, skill3];
+					for(i = 0;i < 3; i++)
+					{
+						if(skill1 === "Javascript")
+							var result = true;
+						else
+							if(skill2 === "Javascript")
+								var result = true;
+								else
+									if(skill3 === "Javascript")
+										var result = true;
+									else 
+										var result = false;
+					}
+					document.getElementById("result3").innerHTML = result;
+				}
+		</script>
+</html>
