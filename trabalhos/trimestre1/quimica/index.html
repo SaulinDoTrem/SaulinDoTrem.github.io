@@ -13,16 +13,36 @@
         <script src="../../../js/jquery.js"></script>
 </head>
 <body>
-    <h1>Simulação 1:Escolhemos o elemento Criptônio</h1>
-    <h2>Se você souber o mol:</h2>
-    Digite o mol:<input type="value" id="mol">
-    <button onclick="javascript:achamol();">Executar</button> 
-    <h2 id="resposta"></h2>
+    <div>
+        <h1>Simulação 1:Escolhemos o elemento Criptônio</h1>
+        <h2>Se você souber o mol:</h2>
+        Digite o mol:<input type="value" id="mol">
+        <button onclick="javascript:achamol();">Executar</button> 
+        <h2 id="resposta"></h2>
+    
+            <h2>Caso você saiba a massa:</h2>
+            Digite a massa:<input type="value" id="massa">
+            <button onclick="javascript:achagrama();">Executar</button>
+            <h2 id="respostas"></h2>
+        </div>
 
-    <h2>Caso você saiba a massa:</h2>
-    Digite a massa:<input type="value" id="massa">
-    <button onclick="javascript:achagrama();">Executar</button>
-    <h2 id="respostas"></h2>
+    <div>
+        <h1>Simulação 2: Correlação da água</h1>
+        <h2>H2O(gramas) --> 1/2 O2(átomos/moléculas)<br>H2O(gramas) --> H2(átomos/moléculas)</h2>
+        Digite quantas gramas de água tem o produto:<input type="value" id="g_h20">
+        <button onclick="javascript:correlacao_prt1();">Executar</button>
+        <h3 id="componente_x"></h3>
+    </div>
+
+    <div>
+        <h1>Simulação 3: Correlação da água</h1>
+        <h2>1/2 O2(mol) --- H2(mol)= H2O(g)</h2>
+        Digite mol do O2 :<input type="value" id="mol_o2">
+        Digite mol do H :<input type="value" id="mol_h2">
+        <button onclick="javascript:achalimitante();">Executar</button>
+        <h3 id="componente_y"></h3>
+    </div>
+
     <div class="footer">
         <a href="../index.html">Voltar</a>
     </div>
@@ -44,7 +64,31 @@
             var resultado2 = "84g = " + massa2 + "<br>1 mol = x mol<br>84x = " + massa2 + "<br>x = " + massa2 + "/84<br>x = " + mol2 + "mol de Criptônio";
             document.getElementById("respostas").innerHTML = resultado2;
         }
-
-
+        function correlacao_prt1()
+        {
+            var grama_h2o = document.getElementById("g_h20").value;
+            grama_h2o = parseFloat(grama_h2o);
+            var mol_h2o = grama_h2o/18;
+            var doidera = Math.pow(10,23); 
+            var molecula_o2 = mol_h2o*(6*doidera);
+            var molecula_h2 = mol_h2o*(2*6*doidera);
+            var resultado3 = "1 mol = 18 gramas de H2O <br> Xmol = Xgramas de H2O <br><br> 1 mol = 18 gramas de H2O <br> Xmol =" + grama_h2o + "<br><br> 1 . " + grama_h2o + " = 18 . mol<br> mol = " + mol_h2o + "<br><br> 1 mol de H2O = 2 . 6 . 10²³ (H2) <br> 1 mol de H2O = 6 . 10²³ (1/2 O2)<br><br>" + mol_h2o + " = " + molecula_h2 + "(átomos/moléculas de H2)" + "<br>" + mol_h2o + " = " + molecula_o2 + "(átomos/moléculas de 1/2 O2)";
+            document.getElementById("componente_x").innerHTML = resultado3;
+        }
+        function achalimitante()
+        {
+            var o2 = document.getElementById("mol_o2").value;
+            var h2 = document.getElementById("mol_h2").value;
+            o2 = parseFloat(o2);
+            h2 = parseFloat(h2);
+            var grama_h2 = h2*1;
+            var grama_o2 = o2*16;
+            var regra = 8*grama_h2;
+            if(regra>grama_o2)
+                var resultado4 = "O reagente limitante é O2 e sua quantidade em gramas é " + grama_o2 + " e a quantidade de produto formado é: " + o2 + "H2O";
+            else
+                var resultado4 = "O reagente limitante é H2 e sua quantidade em gramas é "  + grama_h2 + " e a quantidade de produto formado é: " + h2/2 + "H2O";
+            document.getElementById("componente_y").innerHTML = resultado4;
+        }
     </script>
 </html>
