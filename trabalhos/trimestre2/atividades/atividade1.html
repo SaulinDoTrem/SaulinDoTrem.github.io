@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+		<meta charset="author" content="Saulo Klein Nery"> 
+	<title>Atividade 1</title>
+		<link rel="stylesheet" href="../../../css/bootstrap.css">
+		<link rel="stylesheet" href="../../../css/bootstrap.min.css">
+		<link rel="stylesheet" href="../../../css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="../../../css/style.css">
+  		<script src="../../../js/bootstrap.js"></script>
+  		<script src="../../../js/bootstrap.min.js"></script>
+  		<script src="../../../js/jquery.js"></script>
+	<style>
+		table {
+		  font-family: arial, sans-serif;
+		  border-collapse: collapse;
+		  width: 100%;
+		}
+		
+		th {
+		  border: 1px solid #dddddd;
+		  text-align: left;
+		  padding: 8px;
+		}
+		
+		tr:nth-child(even) {
+		  background-color: #dddddd;
+		}
+		img{
+			width:15px;
+			height:15px;
+		}
+	</style>
+</head>
+<script>
+	$(function(){
+		$("#botao").click(function(){
+			let titulo = $("#title").val();
+			let genero = $("#gender").val();
+			let descricao = $("#desc").val();
+			let autor = $("#author").val();
+			$("#acervo")
+				.append(
+					$("<tr>").addClass("livro")
+						.append(
+							$("<td>")
+								.text(titulo)
+							).addClass("titulo")
+						.append(
+							$("<td>")
+								.text(descricao)
+							).addClass("descricao")
+						.append(
+							$("<td>")
+								.text(genero)
+							).addClass("genero")
+						.append(
+							$("<td>")
+								.text(autor)
+							).addClass("autor")
+						.append(
+							$("<td>")
+								.append($("<img>").attr('src','../img/lixeira.jfif'))
+							)
+						);
+			$("#title").val("");
+			$("#desc").val("");
+			$("#author").val("");
+		})
+		$("input[name=salvar_bd]").click(function () {
+				$('.livro').each(function (idx, obj) {
+					let titulo = $(obj).children("td:nth-child(1)").text();
+					let descricao = $(obj).children("td:nth-child(2)").text();
+					let genero = $(obj).children("td:nth-child(3)").text();
+					let autor = $(obj).children("td:nth-child(4)").text();
+					var livro = {
+						"titulo": titulo, "descricao": descricao,
+						"genero": genero, "autor": autor
+					};
+					acervoArray.push(livro);
+					$("input[name=acervo_post]").val(JSON.stringify(acervoArray));
+					console.log(acervoArray);
+				});
+			});
+		$("#acervo").on("click","img",function(){
+					$(this).parents("#acervo tr").remove();
+				})
+	});
+</script>
+	<body>
+		<fieldset>
+			<h1>Cadrastro de Livros</h1>
+	<input type="text" id="title" placeholder="Título"><br>
+	<textarea id="desc" placeholder="Descrição"></textarea><br>
+	Gênero:  <select id="gender">
+		<option id="fic">Ficção</option>
+		<option id="fanta">Fantasia</option>
+		<option id="roma">Romance</option>
+		<option id="sus">Suspense</option>
+		<option id="ter">Terror</option>
+		<option id="bio">Biografia</option>
+	</select><br>
+	<input type="text" id="author" placeholder="Autor"><br>
+	<button id="botao">Cadastrar</button>
+		</fieldset>
+	<h1>Catálogo</h1>
+	<table id="acervo">
+		<tr>
+			<th>Título</th>
+			<th>Descrição</th>
+			<th>Gênero</th>
+			<th>Autor</th>
+		</tr>
+	</table>
+	<form action="https://rafaelescalfoni.net/web/livros.php" method="post">
+		<input type="hidden" name="acervo_post">
+		<input type="submit" value="Salvar no BD">
+	</form>
+	<div class="footer">
+		<a href="../index.html">Voltar</a>
+	</div>
+</body>
+</html>
