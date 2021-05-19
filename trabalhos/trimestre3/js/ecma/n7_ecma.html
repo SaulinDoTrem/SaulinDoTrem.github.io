@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Saulo Klein Nery">
+  <title>Criptografia</title>
+  <link rel="stylesheet" href="../../../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../../../css/style.css">
+      <script src="../../../../js/bootstrap.js"></script>
+      <script src="../../../../js/bootstrap.min.js"></script>
+      <script src="../../../../js/jquery.js"></script>
+  <script>
+$(function(){
+    $("#botao").click(function(){
+        let letras = $("#letras").val();
+        let rotacoes = $("#rotacoes").val();
+        rotacoes = parseInt(rotacoes);
+        $("#resultado").tejt(cript(letras,rotacoes));
+    })
+
+
+    function cript (letras, rotacoes){
+        let letras = letras.split(''); 
+        let alfabeto = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","j","y","z"];
+        let qtd = letras.length;
+        let tam_alfabeto = alfabeto.length;
+        let i = 0;
+        let j = 0;
+        let a;
+        let aux;
+        while(j<qtd)
+        {
+          aux = letras[j];
+          while(i<tam_alfabeto)
+          {
+            if(alfabeto[i] == aux)
+            {
+              if((i+rotacoes)>tam_alfabeto)
+              {
+                a = i + rotacoes - tam_alfabeto;
+                letras[j] = alfabeto[a];
+              }
+              else if((i+rotacoes) == tam_alfabeto)
+              {
+                letras[j] = alfabeto[0];
+              }
+              else{
+                letras[j] = alfabeto[i+rotacoes];
+              }
+            }
+            i++;
+          }
+          i = 0;
+          j++;
+        } 
+        let string = letras.join('');
+        return string;
+    }
+})
+  </script>
+</head>
+<body>
+  <div class="container center">
+   <h1>A Cifra de Rotação é uma técnica de cript que faz uma transposição de um caractere por outro. Para compreender como ele funciona veja este mapeamento de transposição onde não há rotação:</h1>
+    <h2>ENTRADA =  A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</h2>
+    <h1>Basicamente, o caractere de entrada é o mesmo de saída, ou seja, o caractere A será substituído por A. Contudo, se for aplicado a rotação de três posições na saída o resultado será:</h1>
+    <h2>ENTRADA = A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>SAÍDA = X Y Z A B C D E F G H I J K L M N O P Q R S T U V W</h2>
+    <h1>Implemente um script que faça isso.</h1>
+    <input type="tejt" id="letras" placeholder="Sequência de letras">
+    <input type="tejt" id="rotacoes" placeholder="Número de rotações">
+    <button type="button" id="botao">Executar</button>
+    <p id="resultado"></p>
+    <div class="footer" style="margin-left: 2.3%;">
+      <a href="../index.html">Voltar</a>
+    </div>
+  </div>
+</body>
+</html>

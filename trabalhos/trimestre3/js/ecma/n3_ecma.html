@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Saulo Klein Nery">
+  <title>Arrays com map, filter e reduce</title>
+  <link rel="stylesheet" href="../../../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../../../css/style.css">
+      <script src="../../../../js/bootstrap.js"></script>
+      <script src="../../../../js/bootstrap.min.js"></script>
+      <script src="../../../../js/jquery.js"></script>
+      <script>
+        $(function(){
+    $("#botao").click(function(){
+        let txt = $("#txt").val();
+        txt = txt.replace(/\s+/g, '');
+        let array = txt.split(",");
+        let qtd = array.length;
+        
+        if(array[qtd-1] == "")
+        {
+            array.pop();
+        }
+        $("#resultado").html("<br>Valores duplicados: " + elemento_duplicado(array) + "<br> Valores pares: " + array_par(array) + "<br> Soma dos elementos do array: " + soma(array));
+    })
+    function elemento_duplicado (array){
+        let x = array.map(function(n)
+        {
+            return n*2;
+        })
+        return x;
+    }
+    function array_par (array){
+        let x = array.filter(function(n)
+        {
+            return n%2==0;
+        })
+        if(x == "")
+        {
+            return "Não há valores pares."
+        }
+        else
+        {
+            return x;
+        }
+    }
+    function soma (array){
+        let x = array.reduce(function(soma, n)
+        {
+            return parseInt(soma) + parseInt(n);
+        });
+        return x;
+    }
+})
+      </script>
+</head>
+<body>
+    <div class="container center">
+      <h1>Iterações em Arrays usando map, filter e reduce: <br />Implemente uma função double(), que retorne o array com cada um dos elementos duplicado. A função deve usar map. <br />Implemente uma função evenElements(), que retorne um array com apenas os elementos pares do array original. A função deve usar filter.<br />Implemente uma função sum(), que retorne a soma de todos os elementos do array. A função deve usar reduce.</h1>
+      <h2>Coloque os números entre virgulas.</h2>
+      <form>
+        <input type="text" id="txt" placeholder="Digite o array"><br><br>
+        <button type="button" id="botao">Executar</button>
+      </form>
+      <p id="resultado"></p>
+    <div class="footer" style="margin-left: 2.3%;">
+      <a href="../index.html">Voltar</a>
+    </div>
+    </div>
+</body>
+</html>

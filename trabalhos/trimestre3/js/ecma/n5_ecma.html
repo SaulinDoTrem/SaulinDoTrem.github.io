@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Saulo Klein Nery">
+  <title>Imposto de renda</title>
+  <link rel="stylesheet" href="../../../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../../../css/style.css">
+      <script src="../../../../js/bootstrap.js"></script>
+      <script src="../../../../js/bootstrap.min.js"></script>
+      <script src="../../../../js/jquery.js"></script>
+  <script>
+$(function(){
+    $("#botao").click(function(){
+        let sal = $("#sal").val();
+        console.log(sal);
+        $("#resultado").text("Resultado = " + impos(sal).toFixed(2) + " reais.");
+    })
+
+    function impos (sal)
+    {
+        sal = parseFloat(sal);
+        if(sal <= 1903.99)
+        {
+            return "Não há taxas!";
+        }
+        if(sal > 1903.99 && sal <= 2826.65)
+        {
+            return (sal * 0.075) - 142.80;
+        }
+        if(sal > 2826.65 && sal <= 3751.05)
+        {
+            return (sal * 0.15) - 354.80;
+        }
+        if(sal > 3751.05 && sal <= 4664.68)
+        {
+            return (sal * 0.225) - 636.13;
+        }
+        if(sal > 4664.68)
+        {
+            return (sal * 0.275) - 869.36;
+        }
+    }
+})
+  </script>
+</head>
+<body>
+  <div class="container center">
+    <h1>Faça um programa que realize o cálculo do imposto de renda de acordo com o salário mensal, baseado nas alíquotas da Tabela</h1><br>
+      <input type="text" id="sal" placeholder="Salário">
+      <button type="button" id="botao">Calcular</button>
+      <p id="resultado"></p>
+    <div class="footer" style="margin-left: 2.3%;">
+      <a href="../index.html">Voltar</a>
+    </div>
+  </div>
+</body>
+</html>

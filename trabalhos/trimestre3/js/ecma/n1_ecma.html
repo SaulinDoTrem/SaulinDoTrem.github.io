@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Saulo Klein Nery">
+  <title>Min, Max, Uniq, SortNum</title>
+  <link rel="stylesheet" href="../../../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../../../css/style.css">
+      <script src="../../../../js/bootstrap.js"></script>
+      <script src="../../../../js/bootstrap.min.js"></script>
+      <script src="../../../../js/jquery.js"></script>
+      <script>
+
+        $(function(){
+    $("#botao").click(function(){
+        let txt = $("#txt").val();
+        txt = txt.replace(/\s+/g, '');
+        let array = txt.split(",");
+        let qtd = array.length;
+
+        if(array[qtd-1] == "")
+        {
+            array.pop();
+        }
+        $("#resultado").html("<br>Valor minimo: " + minimo(array) + "<br> Valor máximo: " + maximo(array) + "<br> Array sem repetição: " + sem_repetir(array) + "<br> Array em ordem: " + ordem_crescente(array));
+    })
+
+    function minimo (array){
+        let min;
+        array.forEach( function(num)
+        {
+            if(num == Math.min(...array))
+            {
+                min = num;
+            }            
+        });
+        return min;
+    }
+
+    function maximo (array){
+        let max;
+        array.forEach( function(num)
+        {
+            if(num == Math.max(...array))
+            {
+                max = num;
+            }            
+        });
+        return max;
+    }
+
+    function sem_repetir (array){
+        let array = [...new Set(array)];
+        return array.join(",");
+    }
+
+    function ordem_crescente (array){
+        return array.sort().join(",");
+    }
+})
+      </script>
+</head>
+<body>
+    <div class="container center">
+      <h1>Crie um script que implemente as funções min, max, uniq, sortNum. Tais funções devem: <br>Retornar o valor mínimo (min) e máximo (max) de um array de números, retornar o array sem repetições (uniq) e ordenar o array numérico (sortNum).</h1><br>
+      <h2>Digite os valores/números do array entre virgulas.</h2>
+      <form>
+        <input type="text" id="txt" placeholder="Digite o array"><br><br>
+        <button type="button" id="botao">Executar</button>
+      </form>
+      <p id="resultado"></p>
+    <div class="footer" style="margin-left: 2.3%;">
+      <a href="../index.html">Voltar</a>
+    </div>
+    </div>
+</body>
+</html>

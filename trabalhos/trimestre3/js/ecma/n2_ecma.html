@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Saulo Klein Nery">
+  <title>Fibonacci</title>
+  <link rel="stylesheet" href="../../../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../../../../css/style.css">
+      <script src="../../../../js/bootstrap.js"></script>
+      <script src="../../../../js/bootstrap.min.js"></script>
+      <script src="../../../../js/jquery.js"></script>
+      <script>
+        $(function(){
+    $("#botao").click(function(){
+        let txt = $("#txt").val();
+        txt = txt.replace(/\s+/g, '');
+        let array = txt.split(",");
+        let qtd = array.length;
+
+        if(array[qtd-1] == "")
+        {
+            array.pop();
+        }
+        $("#resultado").html("<br>Sequencia de fibonacci até " + txt + " números: " +  fibonacci(txt));
+    }) 
+
+    function fibonacci (num) {
+        let array = new Array;
+        let a = 0;
+        let b = 1;
+        let f = 1;
+        for (let i=0; i<num; i++) 
+        {
+            array.push(f);
+            f = a + b;
+            a = b;
+            b = f;
+        }
+        return array.join(",");
+    }
+})
+      </script>
+</head>
+<body>
+    <div class="container center">
+      <h1>Crie uma função para exibir a sequência de Fibonacci até a posição n, por exemplo, a série com os quatro primeiros elementos é 0, 1, 1, 2. O valor da entrada e saída são respectivamente um número e um vetor. Você deve disponibilizar uma página para entrada do número n e sua respectiva saída.</h1><br>
+      <form>
+        <input type="text" id="txt" placeholder="Digite o array"><br><br>
+        <button type="button" id="botao">Executar</button>
+      </form>
+      <p id="resultado"></p>
+    <div class="footer" style="margin-left: 2.3%;">
+      <a href="../index.html">Voltar</a>
+    </div>
+    </div>
+</body>
+</html>
